@@ -1,18 +1,17 @@
-version: "3"
+version: '3.8'
 
 services:
-  postgress:
-    image: postgres:latest
-    container_name: teste-conexao-postgres2
+  db:
+    image: postgres:13
+    container_name: finance_ai
     environment:
-      POSTGRES_USER: teste2
-      POSTGRES_PASSWORD: 123456
-      POSTGRES_DB: teste2
-      POSTGRES_HOST_AUTH_METHOD: md5
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: finance_ai_db
     ports:
       - "5432:5432"
     volumes:
-      - ./teste-conexao:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
 
 volumes:
-  postgres-data:
+  postgres_data:
